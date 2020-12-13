@@ -4,12 +4,17 @@ Feature: Merge intervals
 	As a result, all overlapping intervals should be merged.
 	All non-overlapping intervals are not affected.
 
-    Scenario: Example
+    Scenario Outline: Merge intervals exaples
         Given I run the merge script whith input
 	    """
-	    [25,30] [2,19] [14, 23] [4,8]
+	    <input>
 	    """
         Then I expect the output to be
 	    """
-	    [2,23] [25,30]
+	    <output>
 	    """
+    
+    Examples:
+	| input                         | output         |
+	| [10,30] [24,26]		| [10,30]	 |
+	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30] |

@@ -11,10 +11,11 @@ def max(a,b):
 
 def merge(a,b):
 	if b[0] <= a[1]: # should merge
-		return [a[0], max(a[1],b[1])]
-	return a, b
+		return [[a[0], max(a[1],b[1])]]
+	return [a, b]
 
-output = [merge(sorted_list.pop(0), sorted_list.pop(0))]
+output = []
+output.extend(merge(sorted_list.pop(0), sorted_list.pop(0)))
 while len(sorted_list):
 	output.extend(merge(output.pop(), sorted_list.pop(0)))
 

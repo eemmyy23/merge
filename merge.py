@@ -7,6 +7,8 @@ if not bool(re.match(r"^(\[[-\d,\.]+\]){2,}$", clean_input)):
 	exit(0)
 
 input_list = list(map(eval, clean_input.replace("]", "]*")[:-1].split("*")))
+for interval in input_list:
+	interval.sort()
 
 # sort intervals by start
 sorted_list = sorted(input_list, key=lambda interval: interval[0])

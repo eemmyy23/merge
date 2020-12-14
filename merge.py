@@ -2,7 +2,9 @@ import sys
 
 clean_input = "".join(sys.argv[1:]).replace(" ", "")
 input_list = list(map(eval, clean_input.replace("]", "]*")[:-1].split("*")))
-sorted = sorted(input_list, key=lambda tup: tup[0])
+
+# sort intervals by start
+sorted_list = sorted(input_list, key=lambda interval: interval[0])
 
 def max(a,b):
 	return a if a>=b else b
@@ -12,6 +14,8 @@ def merge(a,b):
 		return [a[0], max(a[1],b[1])]
 	return a, b
 
-output = merge(sorted[0], sorted[1])
+output = [merge(sorted_list.pop(0), sorted_list.pop(0))]
+while len(sorted_list):
+	output.extend(merge(output.pop(), sorted_list.pop(0)))
 
-print(str(output).replace(" ",""), end="")
+print(" ".join(str(interval).replace(" ", "") for interval in output), end="")

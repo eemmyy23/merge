@@ -9,8 +9,9 @@ Feature: Merge intervals
         Then I expect the output to be <output>
     
     Examples:
-	| input                         | output         |
-	| [10,30] [24,26]		| [10,30]	 |
-	|  [ 10 , 30]   [24,26]		| [10,30]	 |
-	| [10,30] [24,26] [50,60]	| [10,30] [50,60]|
-	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30] |
+	|input                          | output            | comment                                       |
+	| [10,30] [24,26]               | [10,30]           | two overlapping intervals                     |
+	|  [ 10 , 30]   [24,26]         | [10,30]           | input with white spaces                       |
+	| [10,30] [24,26] [50,60]       | [10,30] [50,60]   | two overlapping and one speparate interval    |
+	| [50,60] [10,30] [24,26]       | [10,30] [50,60]   | random order for the input intervals          |
+	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30]    | task example                                  |

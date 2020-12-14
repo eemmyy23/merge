@@ -10,6 +10,7 @@ Feature: Merge intervals
     
     Examples:
 	|input                          | output            | comment                                       |
+	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30]    | task example                                  |
 	| [10,30] [24,26]               | [10,30]           | two overlapping intervals                     |
 	|  [ 10 , 30]   [24,26]         | [10,30]           | input with white spaces                       |
 	| [10,30] [24,26] [50,60]       | [10,30] [50,60]   | two overlapping and one speparate interval    |
@@ -21,4 +22,4 @@ Feature: Merge intervals
 	| [1607934600000,1607941800000] [1607938200000,1607945400000] | [1607934600000,1607945400000] | unix timestamp millis |
 	| difonwfg                      | Invalid format. See feature description for exaples  |            |	
 	| [1,2]                         | Invalid format. See feature description for exaples  |            |	
-	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30]    | task example                                  |
+	| [30,25] [19,2] [23, 14] [8,4] | [2,23] [25,30]    | task example w/o sorted intervals             |

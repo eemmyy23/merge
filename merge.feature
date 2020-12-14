@@ -19,4 +19,6 @@ Feature: Merge intervals
 	| [1.5,2.77777] [2.7,4.6]       | [1.5,4.6]         | intervals given with floating numers          |	
 	| [-9,-5] [-7,-3] [-1,3]        | [-9,-3] [-1,3]    | intervals given with negative numers          |
 	| [1607934600000,1607941800000] [1607938200000,1607945400000] | [1607934600000,1607945400000] | unix timestamp millis |
+	| difonwfg                      | Invalid format. See feature description for exaples  |            |	
+	| [1,2]                         | Invalid format. See feature description for exaples  |            |	
 	| [25,30] [2,19] [14, 23] [4,8] | [2,23] [25,30]    | task example                                  |
